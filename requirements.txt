@@ -1,5 +1,4 @@
 requests
 beautifulsoup4
 lxml
-pyyaml
-aiohttp
+# 修复：移除未使用的 pyyaml 和 aiohttp，保持依赖最小化
