@@ -5,6 +5,9 @@ on:
     - cron: '0 0 * * *'  # 每天 UTC 00:00 触发（根据需要调整）
   workflow_dispatch:
 
+permissions:
+  contents: write  # 修复：显式声明写权限，否则 git push 可能被拒绝
+
 jobs:
   fetch-and-validate:
     runs-on: ubuntu-latest
@@ -12,7 +15,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5  # 修复：v4 已过时，升级到 v5
         with:
           python-version: '3.11'
 
